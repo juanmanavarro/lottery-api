@@ -2,4 +2,4 @@
 
 ## Usage
 
-Just visit https://spanish-lottery-api.herokuapp.com/
+GET https://spanish-lottery-api.herokuapp.com/
