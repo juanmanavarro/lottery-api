@@ -1,4 +1,4 @@
-# Loteria de Navidad API
+# Lotería de Navidad API
 
 ## Usage
 
