@@ -1,13 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import axios from 'axios';
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  @Get()
-  async getHello(): Promise<any> {
-    let { data } = await axios.get('https://api.elpais.com/ws/LoteriaNavidadPremiados?n=resumen');
-    let response = data.replace('premios=', '');
+  constructor(private appService: AppService) {};
 
-    return response;
+  @Get()
+  async getPrizes(@Query('length') length: number): Promise<any> {
+    let { data } = await axios.get('https://api.elpais.com/ws/LoteriaNavidadPremiados?n=resumen');
+
+    return this.appService.transform(data, length);
   }
 }
